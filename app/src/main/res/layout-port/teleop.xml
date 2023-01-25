@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#373737">
 
+
     <TextView
         android:id="@+id/teleoptext"
         android:layout_width="150dp"
@@ -163,6 +164,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
