@@ -7,108 +7,164 @@
     android:background="#373737">
 
 
+    <TextView
+        android:id="@+id/teleoptext"
+        android:layout_width="150dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="TeleOp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/AutoBt"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:textSize="20sp"
-        android:text="Auto"
+        android:id="@+id/autobt"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/roboto"
+        android:text="auto"
+        android:textColor="@color/white"
         android:background="@color/black"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="21dp"/>
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/teleoptext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/teleoptext" />
 
     <TextView
-        android:id="@+id/TeleOpTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="679dp"
-        android:fontFamily="@font/roboto"
-        android:text="TELEOP"
+        android:id="@+id/cubetext"
+
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="15dp"
+        android:text="CUBE"
         android:textColor="@color/white"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/conetext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teleoptext" />
+
+    <Button
+        android:id="@+id/cubehighbt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/roboto"
+        android:text="High"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@+id/cubetext"
+        app:layout_constraintEnd_toEndOf="@+id/cubetext"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <Button
+        android:id="@+id/cubemiddlebt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Middle"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="@+id/cubehighbt"
+        app:layout_constraintTop_toBottomOf="@+id/cubehighbt" />
+
+    <Button
+        android:id="@+id/cubelowbt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Low"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="@+id/cubemiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/cubemiddlebt" />
+
+    <TextView
+        android:id="@+id/conetext"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="25dp"
+        android:text="CONE"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/cubetext"
+        app:layout_constraintTop_toBottomOf="@+id/teleoptext" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="10dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TeleOpTitle" />
+        android:id="@+id/conehighbt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/roboto"
+        android:text="High"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@+id/conetext"
+        app:layout_constraintEnd_toEndOf="@+id/conetext"
+        tools:layout_editor_absoluteX="195dp" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="150dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTOPOf="@+id/button3" />
+        android:id="@+id/conemiddlebt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Middle"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="@+id/conehighbt"
+        app:layout_constraintTop_toBottomOf="@+id/conehighbt" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="139dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="146dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        android:id="@+id/conelowbt"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Low"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="@+id/conemiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/conemiddlebt" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        tools:layout_editor_absoluteX="262dp" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="169dp"
-        android:text="Button"
+        android:id="@+id/undobt"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_shape"
+        android:text="Undo"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="163dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
