@@ -5,18 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CEFF00"
-    tools:ignore="MissingDefaultResource">
+    tools:context=".Main">
+
+
 
 
     <Button
-        android:id="@+id/btStart"
+        android:id="@+id/start"
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="600dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/start"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_shape"
+        android:hint="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sotabots_logo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

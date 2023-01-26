@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#373737">
+
+    <TextView
+        android:id="@+id/autotext"
+        android:layout_width="115dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Auto"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/teleopbt"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/black"
+        android:fontFamily="@font/roboto"
+        android:text="Teleop"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/autotext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/autotext" />
+
+    <TextView
+        android:id="@+id/cubetext"
+
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="15dp"
+        android:text="CUBE"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/conetext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autotext" />
+
+    <Button
+        android:id="@+id/cubehighbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/roboto"
+        android:text="High: \n0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@+id/cubetext"
+        app:layout_constraintEnd_toEndOf="@+id/cubetext"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <Button
+        android:id="@+id/cubemiddlebt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Middle: 0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="@+id/cubehighbt"
+        app:layout_constraintTop_toBottomOf="@+id/cubehighbt" />
+
+    <Button
+        android:id="@+id/cubelowbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Low: \n0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="@+id/cubemiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/cubemiddlebt" />
+
+    <TextView
+        android:id="@+id/conetext"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="25dp"
+        android:text="CONE"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cubetext"
+        app:layout_constraintTop_toBottomOf="@+id/autotext" />
+
+    <Button
+        android:id="@+id/conehighbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/roboto"
+        android:text="High: \n0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@+id/conetext"
+        app:layout_constraintEnd_toEndOf="@+id/conetext"
+        tools:layout_editor_absoluteX="195dp" />
+
+    <Button
+        android:id="@+id/conemiddlebt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Middle: 0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="@+id/conehighbt"
+        app:layout_constraintTop_toBottomOf="@+id/conehighbt" />
+
+    <Button
+        android:id="@+id/conelowbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Low: \n0"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="@+id/conemiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/conemiddlebt" />
+
+    <Button
+        android:id="@+id/undobt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_shape"
+        android:text="Undo"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
