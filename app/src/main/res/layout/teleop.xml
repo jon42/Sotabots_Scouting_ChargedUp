@@ -26,9 +26,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/autobt"
+        android:id="@+id/teleSetAutobt"
         android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="20dp"
@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/cubetext"
 
-        android:layout_width="140dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="17dp"
@@ -58,48 +58,53 @@
         app:layout_constraintTop_toBottomOf="@+id/teleoptext" />
 
     <Button
-        android:id="@+id/cubehighbt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="25dp"
+        android:id="@+id/teleCubeHighbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/roboto"
         android:text="High"
+        android:hint="High: "
+        android:tag="teleCubeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
-        app:layout_constraintTop_toBottomOf="@+id/cubetext"
         app:layout_constraintEnd_toEndOf="@+id/cubetext"
-        tools:layout_editor_absoluteX="25dp" />
+        app:layout_constraintTop_toBottomOf="@+id/cubetext" />
 
     <Button
-        android:id="@+id/cubemiddlebt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:id="@+id/teleCubeMiddlebt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Middle"
+        android:hint="Middle: "
+        android:tag="teleCubeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintStart_toStartOf="@+id/cubehighbt"
-        app:layout_constraintTop_toBottomOf="@+id/cubehighbt" />
+        app:layout_constraintStart_toStartOf="@+id/teleCubeHighbt"
+        app:layout_constraintTop_toBottomOf="@+id/teleCubeHighbt" />
 
     <Button
-        android:id="@+id/cubelowbt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:id="@+id/teleCubeLowbt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Low"
+        android:hint="Low: "
+        android:tag="teleCubeLow"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintStart_toStartOf="@+id/cubemiddlebt"
-        app:layout_constraintTop_toBottomOf="@+id/cubemiddlebt" />
+        app:layout_constraintStart_toStartOf="@+id/teleCubeMiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/teleCubeMiddlebt" />
 
     <TextView
         android:id="@+id/conetext"
-        android:layout_width="140dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="17dp"
@@ -113,13 +118,15 @@
         app:layout_constraintTop_toBottomOf="@+id/teleoptext" />
 
     <Button
-        android:id="@+id/conehighbt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:id="@+id/teleConeHighBt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/roboto"
-        android:text="High"
+        android:text="High: "
+        android:hint="High: "
+        android:tag="teleConeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@+id/conetext"
@@ -127,36 +134,40 @@
         tools:layout_editor_absoluteX="195dp" />
 
     <Button
-        android:id="@+id/conemiddlebt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:id="@+id/teleConeMiddlebt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Middle"
+        android:hint="Middle: "
+        android:tag="teleConeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintEnd_toEndOf="@+id/conehighbt"
-        app:layout_constraintTop_toBottomOf="@+id/conehighbt" />
+        app:layout_constraintEnd_toEndOf="@+id/teleConeHighBt"
+        app:layout_constraintTop_toBottomOf="@+id/teleConeHighBt" />
 
     <Button
-        android:id="@+id/conelowbt"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:id="@+id/teleConeLowBt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Low"
+        android:hint="Low: "
+        android:tag="teleConelow"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintEnd_toEndOf="@+id/conemiddlebt"
-        app:layout_constraintTop_toBottomOf="@+id/conemiddlebt" />
+        app:layout_constraintEnd_toEndOf="@+id/teleConeMiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/teleConeMiddlebt" />
 
     <Button
-        android:id="@+id/undobt"
+        android:id="@+id/teleUndoBt"
         android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button_shape"
         android:text="Undo"
@@ -165,6 +176,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/Foul"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button_shape"
+        android:text="Foul"
+        android:hint="Foul: "
+        android:tag="teleFoul"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/teleUndoBt"
+        app:layout_constraintEnd_toStartOf="@id/Finished"
+        app:layout_constraintStart_toEndOf="@+id/teleUndoBt"
+        app:layout_constraintTop_toTopOf="@+id/teleUndoBt" />
+
+    <Button
+        android:id="@+id/Finished"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
+        android:text="Finished"
+        android:hint="Finished"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@id/teleUndoBt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Foul"
+        app:layout_constraintTop_toTopOf="@+id/teleUndoBt"  />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

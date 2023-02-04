@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/teleopbt"
         android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
@@ -57,13 +57,15 @@
         app:layout_constraintTop_toBottomOf="@+id/autotext" />
 
     <Button
-        android:id="@+id/cubehighbt"
+        android:id="@+id/autoCubeHighbt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/roboto"
         android:text="High: \n0"
+        android:hint="High: \n"
+        android:tag="AutoCubeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@+id/cubetext"
@@ -71,30 +73,34 @@
         tools:layout_editor_absoluteX="25dp" />
 
     <Button
-        android:id="@+id/cubemiddlebt"
+        android:id="@+id/autoCubeMiddle"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Middle: 0"
+        android:hint="Middle: \n"
+        android:tag="autoCubeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintStart_toStartOf="@+id/cubehighbt"
-        app:layout_constraintTop_toBottomOf="@+id/cubehighbt" />
+        app:layout_constraintStart_toStartOf="@+id/autoCubeHighbt"
+        app:layout_constraintTop_toBottomOf="@+id/autoCubeHighbt" />
 
     <Button
-        android:id="@+id/cubelowbt"
+        android:id="@+id/autoCubelowbt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Low: \n0"
+        android:hint="Low: \n"
+        android:tag="autoCubelow"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintStart_toStartOf="@+id/cubemiddlebt"
-        app:layout_constraintTop_toBottomOf="@+id/cubemiddlebt" />
+        app:layout_constraintStart_toStartOf="@+id/autoCubeMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/autoCubeMiddle" />
 
     <TextView
         android:id="@+id/conetext"
@@ -112,13 +118,15 @@
         app:layout_constraintTop_toBottomOf="@+id/autotext" />
 
     <Button
-        android:id="@+id/conehighbt"
+        android:id="@+id/autoConeHighbt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/roboto"
         android:text="High: \n0"
+        android:hint="High: \n"
+        android:tag="autoConeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@+id/conetext"
@@ -126,33 +134,56 @@
         tools:layout_editor_absoluteX="195dp" />
 
     <Button
-        android:id="@+id/conemiddlebt"
+        android:id="@+id/autoConeMiddlebt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Middle: 0"
+        android:hint="Middle: \n"
+        android:tag="autoConeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintEnd_toEndOf="@+id/conehighbt"
-        app:layout_constraintTop_toBottomOf="@+id/conehighbt" />
+        app:layout_constraintEnd_toEndOf="@+id/autoConeHighbt"
+        app:layout_constraintTop_toBottomOf="@+id/autoConeHighbt" />
 
     <Button
-        android:id="@+id/conelowbt"
+        android:id="@+id/autoConeLowbt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:text="Low: \n0"
+        android:hint="Low: \n"
+        android:tag="autoConeLow"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
-        app:layout_constraintEnd_toEndOf="@+id/conemiddlebt"
-        app:layout_constraintTop_toBottomOf="@+id/conemiddlebt" />
+        app:layout_constraintEnd_toEndOf="@+id/autoConeMiddlebt"
+        app:layout_constraintTop_toBottomOf="@+id/autoConeMiddlebt" />
+
+
 
     <Button
-        android:id="@+id/undobt"
+        android:id="@+id/Foul"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/button_shape"
+        android:text="Foul"
+        android:hint="Foul: "
+        android:tag="autoFoul"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/autoUndobt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/autoUndobt"
+        app:layout_constraintTop_toTopOf="@+id/autoUndobt" />
+
+    <Button
+        android:id="@+id/autoUndobt"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
@@ -162,8 +193,21 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"   />
 
+
+    <!--    <com.google.android.material.chip.Chip-->
+<!--        android:id="@+id/chip4"-->
+<!--        android:layout_width="138dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginEnd="243dp"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/undobt"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/autoCubelowbt" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "939018556871",
+    "firebase_url": "https://sotabots-scouting-2023-default-rtdb.firebaseio.com",
+    "project_id": "sotabots-scouting-2023",
+    "storage_bucket": "sotabots-scouting-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939018556871:android:b6c8cea8b30d01084875e2",
+        "android_client_info": {
+          "package_name": "com.example.sotabots_scouting_chargedup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939018556871-agsid3f17k900usuafnob4mr7esttl9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhL7yVZJ0rakKAWKF9wOWTViCEYMxM7LM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939018556871-agsid3f17k900usuafnob4mr7esttl9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

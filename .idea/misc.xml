@@ -12,17 +12,18 @@
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout-port/auto.xml" value="0.25" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout-port/start.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout-port/teleop.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/auto.xml" value="0.1859375" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/initialize.xml" value="0.14945652173913043" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/s.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/setpose.xml" value="0.14945652173913043" />
-        <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/start.xml" value="0.16" />
+        <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/start.xml" value="0.2" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/teleop.xml" value="0.1859375" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/layout/x.xml" value="0.25" />
         <entry key="..\:/Users/jonw3/AndroidStudioProjects/Sotabots_Scouting_ChargedUp/app/src/main/res/mipmap-anydpi-v26/Sotabots.xml" value="0.202" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

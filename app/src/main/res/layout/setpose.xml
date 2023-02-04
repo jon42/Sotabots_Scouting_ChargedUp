@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#201F1D">
     <Button
-        android:id="@+id/Red1Button"
+        android:id="@+id/red1"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:layout_marginStart="40dp"
@@ -16,16 +16,17 @@
         android:backgroundTint="#F3FF0000"
         android:fontFamily="serif"
         android:text="Red 1"
+        android:hint="1"
         android:textSize="34sp"
         app:backgroundTint="#FF0000"
         app:iconTint="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/red2Button"
-        app:layout_constraintEnd_toStartOf="@+id/Blue1Button"
+        app:layout_constraintBottom_toTopOf="@+id/red2"
+        app:layout_constraintEnd_toStartOf="@+id/blue1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/red2Button"
+        android:id="@+id/red2"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:layout_marginTop="8dp"
@@ -33,17 +34,18 @@
         android:backgroundTint="#F3FF0000"
         android:fontFamily="serif"
         android:text="Red 2"
+        android:hint="2"
         android:textSize="34sp"
         app:backgroundTint="#FF0000"
         app:iconTint="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/red3Button"
-        app:layout_constraintEnd_toEndOf="@+id/Red1Button"
+        app:layout_constraintBottom_toTopOf="@+id/red3"
+        app:layout_constraintEnd_toEndOf="@+id/red1"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/Red1Button"
-        app:layout_constraintTop_toBottomOf="@+id/Red1Button" />
+        app:layout_constraintStart_toStartOf="@+id/red1"
+        app:layout_constraintTop_toBottomOf="@+id/red1" />
 
     <Button
-        android:id="@+id/Blue1Button"
+        android:id="@+id/blue1"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:layout_marginStart="8dp"
@@ -52,41 +54,44 @@
         android:backgroundTint="#F30000FF"
         android:fontFamily="serif"
         android:text="Blue 1"
+        android:hint="4"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Red1Button"
+        app:layout_constraintBottom_toBottomOf="@+id/red1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Red1Button"
-        app:layout_constraintTop_toTopOf="@+id/Red1Button" />
+        app:layout_constraintStart_toEndOf="@+id/red1"
+        app:layout_constraintTop_toTopOf="@+id/red1" />
 
     <Button
-        android:id="@+id/blue2Button"
+        android:id="@+id/blue2"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="#F30000FF"
         android:fontFamily="serif"
         android:text="Blue 2"
+        android:hint="5"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="@+id/red2Button"
-        app:layout_constraintEnd_toEndOf="@+id/Blue1Button"
-        app:layout_constraintStart_toStartOf="@+id/Blue1Button"
-        app:layout_constraintTop_toTopOf="@+id/red2Button" />
+        app:layout_constraintBottom_toBottomOf="@+id/red2"
+        app:layout_constraintEnd_toEndOf="@+id/blue1"
+        app:layout_constraintStart_toStartOf="@+id/blue1"
+        app:layout_constraintTop_toTopOf="@+id/red2" />
 
     <Button
-        android:id="@+id/blue3Button"
+        android:id="@+id/blue3"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="#F20000FF"
         android:fontFamily="serif"
         android:text="Blue 3"
+        android:hint="6"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="@+id/red3Button"
-        app:layout_constraintEnd_toEndOf="@+id/Blue1Button"
-        app:layout_constraintStart_toStartOf="@+id/Blue1Button"
-        app:layout_constraintTop_toTopOf="@+id/red3Button" />
+        app:layout_constraintBottom_toBottomOf="@+id/red3"
+        app:layout_constraintEnd_toEndOf="@+id/blue1"
+        app:layout_constraintStart_toStartOf="@+id/blue1"
+        app:layout_constraintTop_toTopOf="@+id/red3" />
     <Button
-        android:id="@+id/red3Button"
+        android:id="@+id/red3"
         android:layout_width="165dp"
         android:layout_height="165dp"
         android:layout_marginTop="8dp"
@@ -95,12 +100,13 @@
         android:backgroundTint="#F3FF0000"
         android:fontFamily="serif"
         android:text="Red 3"
+        android:hint="3"
         android:textSize="34sp"
         app:backgroundTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Red1Button"
+        app:layout_constraintEnd_toEndOf="@+id/red1"
         app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="@+id/Red1Button"
-        app:layout_constraintTop_toBottomOf="@+id/red2Button" />
+        app:layout_constraintStart_toStartOf="@+id/red1"
+        app:layout_constraintTop_toBottomOf="@+id/red2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
