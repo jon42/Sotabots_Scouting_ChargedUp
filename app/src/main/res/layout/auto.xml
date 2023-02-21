@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#373737">
+    android:background="#EB0A0A0A">
 
     <TextView
         android:id="@+id/autotext"
@@ -22,14 +22,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/teleopbt"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:background="@color/black"
         android:fontFamily="@font/roboto"
@@ -61,7 +60,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:fontFamily="@font/roboto"
         android:text="High: \n0"
         android:hint="High: \n"
@@ -77,7 +76,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Middle: 0"
         android:hint="Middle: \n"
         android:tag="autoCubeHigh"
@@ -92,7 +91,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Low: \n0"
         android:hint="Low: \n"
         android:tag="autoCubelow"
@@ -122,7 +121,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:fontFamily="@font/roboto"
         android:text="High: \n0"
         android:hint="High: \n"
@@ -138,7 +137,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Middle: 0"
         android:hint="Middle: \n"
         android:tag="autoConeMiddle"
@@ -153,7 +152,7 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Low: \n0"
         android:hint="Low: \n"
         android:tag="autoConeLow"
@@ -171,7 +170,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Foul"
         android:hint="Foul: "
         android:tag="autoFoul"
@@ -188,26 +187,113 @@
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Undo"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"   />
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="Mobility"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layoutDirection="rtl"
+        android:background="@drawable/button_shape_on"
+        android:checked="false"
+        android:buttonTint="@color/white"
+        android:paddingEnd="10dp"
+        android:tag="Mobility"
+        app:layout_constraintStart_toStartOf="@id/autoCubeHighbt"
+        app:layout_constraintTop_toBottomOf="@id/autoCubelowbt"
+        app:layout_constraintBottom_toTopOf="@id/autoUndobt"
+        />
 
-    <!--    <com.google.android.material.chip.Chip-->
-<!--        android:id="@+id/chip4"-->
-<!--        android:layout_width="138dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="243dp"-->
-<!--        android:layout_marginBottom="30dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/undobt"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/autoCubelowbt" />-->
+
+    <!--    <Switch-->
+<!--        android:id="@+id/switch1"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_marginTop="71dp"-->
+<!--        android:layout_marginBottom="64dp"-->
+<!--        android:background="@drawable/button_shape_on"-->
+<!--        android:forceHasOverlappingRendering="false"-->
+<!--        android:paddingStart="10dp"-->
+<!--        android:scrollbarSize="30dp"-->
+<!--        android:scrollbarStyle="insideOverlay"-->
+<!--        android:scrollbarThumbHorizontal="@drawable/button_shape_on"-->
+<!--        android:scrollbars="horizontal"-->
+
+<!--        android:splitTrack="false"-->
+<!--        android:switchMinWidth="100dp"-->
+<!--        android:text="Taxi"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20sp"-->
+<!--        android:thumbTint="@color/white"-->
+<!--        android:trackTint="@color/white"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/autoUndobt"-->
+<!--        app:layout_constraintStart_toStartOf="@id/autoCubeHighbt"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/autoCubelowbt"-->
+<!--        tools:checked="false" />-->
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/autoChargeStation"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/Foul"
+        app:layout_constraintStart_toStartOf="@+id/autoConeLowbt"
+        app:layout_constraintTop_toBottomOf="@+id/autoConeLowbt"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+
+            android:id="@+id/autoChargeOff"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:checked="true"
+            android:text="Off"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_off"
+            app:chipIconSize="30dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/autoDocked"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:text="Docked"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_on"
+            app:chipIconSize="30dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/autoChargeEngaged"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:text="Engaged"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_on"
+            app:chipIconSize="30dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,13 @@ import android.os.PersistableBundle
 import android.provider.CalendarContract.Calendars
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.SeekBar
 import android.widget.TextView
 import com.example.sotabots_scouting_chargedup.R.*
+import com.google.android.material.chip.Chip
+import com.google.firebase.FirebaseApp
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.Calendar
@@ -16,7 +21,12 @@ import java.util.Stack
 
 
 class Main : Activity() {
-
+    lateinit var data: MutableMap<String, Int>
+    var pose: Int = 0
+    lateinit var poseTXT: String
+    lateinit var color: Drawable
+    lateinit var prevChange: Stack<View>
+    lateinit var dataBase: FirebaseDatabase // = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         start()
@@ -30,21 +40,24 @@ class Main : Activity() {
     }
 
     fun start(){
-        setContentView(layout.start)
-        findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
+//        setContentView(layout.start)
+//        findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
+        data = mutableMapOf()
+        prevChange = Stack()
+        dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
         dataBase.setPersistenceEnabled(true)
+        setAuto()
     }
 
     override fun onResume() {
         super.onResume()
     }
 
-    var data = mutableMapOf<String, Int>()
-    var pose = 0
-    var poseTXT =""
-    lateinit var color: Drawable
-    var prevChange: Stack<View> = Stack()
-    var dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+
 
 
     fun initializeData(){
@@ -77,10 +90,7 @@ class Main : Activity() {
         }
         var view = prevChange.pop()
         data.compute(view.tag.toString()) {k, v ->
-            if (v != null) {
-                return@compute v - 1
-            }
-            return@compute 0
+            return@compute if (v != null) {v - 1 } else 0
         }
 
         try{
@@ -133,6 +143,13 @@ class Main : Activity() {
         setContentView(layout.auto)
         findViewById<Button>(id.teleopbt).setOnClickListener() {setTele()}
         findViewById<Button>(id.autoUndobt).setOnClickListener() {undo()}
+        findViewById<CheckBox>(id.checkBox).setOnClickListener() {
+            data.putIfAbsent(it.tag.toString(), 0)
+            data.compute(it.tag.toString()) { k, v -> return@compute if (v == 1) 0 else 1 }
+        }
+        var dockedBT = findViewById<Chip>(id.autoDocked)
+        var engagedBT = findViewById<Chip>(id.auto)
+
         var touchables = listOf<Button>(
             findViewById<Button>(id.autoConeLowbt),
             findViewById(id.autoConeHighbt),
@@ -157,8 +174,9 @@ class Main : Activity() {
         findViewById<Button>(id.teleUndoBt).setOnClickListener() {undo()}
         findViewById<Button>(id.teleSetAutobt).setOnClickListener() {setAuto()}
         findViewById<Button>(id.Finished).setOnClickListener() {
-            publishData()
-            initializeView()
+//            publishData()
+//            initializeView()
+            finalDataView()
         }
         var touchables = listOf<View>(
             findViewById<Button>(id.teleConeHighBt),
@@ -178,6 +196,41 @@ class Main : Activity() {
                 x.text = x.hint.toString() + data[x.tag.toString()]
             }
         }
+    }
+    private fun finalDataView(){
+        setContentView(R.layout.finaldata)
+        var buttonOn = Drawable.createFromPath("button_shape_on.xml")
+        var buttonOff = Drawable.createFromPath("button_shape_off.xml")
+        findViewById<Button>(R.id.FinalBackButton).setOnClickListener() {setContentView(layout.teleop)}
+
+        var engagedCharge = findViewById<Button>(id.TeleOpEngangedCharge)
+        var onCharge = findViewById<Button>(id.TeleOpOnCharge)
+        var noCharge = findViewById<Button>(id.TeleopNoCharge)
+        var strategySlider = findViewById<SeekBar>(id.Strategy)
+
+        data["teleCharge"] = 0
+        noCharge.background = buttonOff
+
+        noCharge.setOnClickListener(){
+            data["teleCharge"] = 0
+            it.background = buttonOff
+            onCharge.background = buttonOn
+            engagedCharge.background = buttonOn
+        }
+        onCharge.setOnClickListener() {
+            data["teleCharge"] = 1
+            it.background = buttonOff
+            noCharge.background = buttonOn
+            engagedCharge.background = buttonOn
+        }
+        engagedCharge.setOnClickListener(){
+            data["teleCharge"] = 2
+            it.background = buttonOff
+            onCharge.background = buttonOn
+            noCharge.background = buttonOn
+        }
+
+
     }
 
     fun publishData(){

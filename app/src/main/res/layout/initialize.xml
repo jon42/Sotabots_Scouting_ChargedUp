@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#201F1D">
+    android:background="#EB0A0A0A">
 
     <TextView
         android:id="@+id/displayPose"
@@ -74,7 +74,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="282dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:fontFamily="serif"
         android:text="Start"
         android:textColor="@color/white"
@@ -90,7 +90,7 @@
         android:layout_height="100dp"
         android:layout_width="1000dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape_on"
         android:text="Set Position"
         android:textSize="24sp"
         android:textColor="@color/white"
