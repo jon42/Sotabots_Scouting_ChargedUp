@@ -4,19 +4,16 @@ import android.app.Activity
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.provider.CalendarContract.Calendars
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
 import com.example.sotabots_scouting_chargedup.R.*
-import com.google.android.material.chip.Chip
-import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.util.Calendar
 import java.util.Stack
 
 
@@ -82,7 +79,32 @@ class Main : Activity() {
         prevChange.add(view)
 
     }
-
+    fun autoChargeStation(view: View){
+        when (view.id) {
+            id.autoChargeOff -> {data.putIfAbsent("autoChargeStation", 0)
+                data["autoChargeStation"] = 0
+            }
+            id.autoChargeEngaged -> {data.putIfAbsent("autoChargeStation", 1)
+                data["autoChargeStation"] = 1
+            }
+            id.autoChargeDocked -> {data.putIfAbsent("autoChargeStation", 2)
+                data["autoChargeStation"] = 2
+            }
+        }
+    }
+    fun teleChargeStation(view: View){
+        when (view.id) {
+            id.teleChargeOff -> {data.putIfAbsent("teleChargeStation", 0)
+                data["teleChargeStation"] = 0
+            }
+            id.teleChargeEngaged -> {data.putIfAbsent("teleChargeStation", 1)
+                data["teleChargeStation"] = 1
+            }
+            id.teleChargeDocked -> {data.putIfAbsent("teleChargeStation", 2)
+                data["teleChargeStation"] = 2
+            }
+        }
+    }
     fun undo(){
         if(prevChange.empty()) {
             initializeView()
@@ -139,6 +161,7 @@ class Main : Activity() {
 
         findViewById<Button>(id.startDataBT).setOnClickListener() {initializeData()}
     }
+
     fun setAuto(){
         setContentView(layout.auto)
         findViewById<Button>(id.teleopbt).setOnClickListener() {setTele()}
@@ -147,8 +170,10 @@ class Main : Activity() {
             data.putIfAbsent(it.tag.toString(), 0)
             data.compute(it.tag.toString()) { k, v -> return@compute if (v == 1) 0 else 1 }
         }
-        var dockedBT = findViewById<Chip>(id.autoDocked)
-        var engagedBT = findViewById<Chip>(id.auto)
+        findViewById<RadioButton>(id.autoChargeOff).setOnClickListener() {autoChargeStation(it)}
+        findViewById<RadioButton>(id.autoChargeDocked).setOnClickListener() {autoChargeStation(it)}
+        findViewById<RadioButton>(id.autoChargeEngaged).setOnClickListener() {autoChargeStation(it)}
+
 
         var touchables = listOf<Button>(
             findViewById<Button>(id.autoConeLowbt),
@@ -187,6 +212,9 @@ class Main : Activity() {
             findViewById(id.teleCubeHighbt)
 
         )
+        findViewById<RadioButton>(id.teleChargeOff).setOnClickListener() {teleChargeStation(it)}
+        findViewById<RadioButton>(id.teleChargeDocked).setOnClickListener() {teleChargeStation(it)}
+        findViewById<RadioButton>(id.teleChargeEngaged).setOnClickListener() {teleChargeStation(it)}
 
         touchables.forEach(){
             val x = findViewById<Button>(it.id)
@@ -229,8 +257,6 @@ class Main : Activity() {
             onCharge.background = buttonOn
             noCharge.background = buttonOn
         }
-
-
     }
 
     fun publishData(){

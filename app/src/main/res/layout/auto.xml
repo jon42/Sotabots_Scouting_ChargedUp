@@ -241,7 +241,8 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/autoCubelowbt"-->
 <!--        tools:checked="false" />-->
 
-    <com.google.android.material.chip.ChipGroup
+
+    <RadioGroup
         android:id="@+id/autoChargeStation"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -250,7 +251,7 @@
         app:layout_constraintTop_toBottomOf="@+id/autoConeLowbt"
         app:singleSelection="true">
 
-        <com.google.android.material.chip.Chip
+        <RadioButton
 
             android:id="@+id/autoChargeOff"
             android:layout_width="150dp"
@@ -264,8 +265,8 @@
             app:chipIcon="@drawable/button_shape_off"
             app:chipIconSize="30dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/autoDocked"
+        <RadioButton
+            android:id="@+id/autoChargeDocked"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:background="@drawable/button_shape_on"
@@ -276,24 +277,20 @@
             app:chipIcon="@drawable/button_shape_on"
             app:chipIconSize="30dp" />
 
-        <com.google.android.material.chip.Chip
+        <RadioButton
             android:id="@+id/autoChargeEngaged"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:background="@drawable/button_shape_on"
             android:text="Engaged"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorLink="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
             app:chipIconSize="30dp" />
 
-    </com.google.android.material.chip.ChipGroup>
-
-
-
-
-
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

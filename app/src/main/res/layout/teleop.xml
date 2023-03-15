@@ -64,8 +64,8 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/button_shape_on"
         android:fontFamily="@font/roboto"
-        android:text="High"
-        android:hint="High: "
+        android:text="High: \n0"
+        android:hint="High: \n"
         android:tag="teleCubeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -78,8 +78,8 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape_on"
-        android:text="Middle"
-        android:hint="Middle: "
+        android:text="Middle: \n0"
+        android:hint="Middle: \n"
         android:tag="teleCubeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -93,8 +93,8 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape_on"
-        android:text="Low"
-        android:hint="Low: "
+        android:text="Low: \n0"
+        android:hint="Low: \n"
         android:tag="teleCubeLow"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -124,8 +124,8 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/button_shape_on"
         android:fontFamily="@font/roboto"
-        android:text="High: "
-        android:hint="High: "
+        android:text="High: \n0"
+        android:hint="High: \n"
         android:tag="teleConeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -139,8 +139,8 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape_on"
-        android:text="Middle"
-        android:hint="Middle: "
+        android:text="Middle: \n0"
+        android:hint="Middle: \n"
         android:tag="teleConeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -154,8 +154,8 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape_on"
-        android:text="Low"
-        android:hint="Low: "
+        android:text="Low: \n0"
+        android:hint="Low: \n"
         android:tag="teleConelow"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -205,6 +205,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Foul"
         app:layout_constraintTop_toTopOf="@+id/teleUndoBt"  />
+    <RadioGroup
+        android:id="@+id/teleChargeStation"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/Foul"
+        app:layout_constraintStart_toStartOf="@+id/teleConeLowBt"
+        app:layout_constraintTop_toBottomOf="@+id/teleConeLowBt"
+        app:singleSelection="true">
+
+        <RadioButton
+
+            android:id="@+id/teleChargeOff"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:checked="true"
+            android:text="Off"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_off"
+            app:chipIconSize="30dp" />
+
+        <RadioButton
+            android:id="@+id/teleChargeDocked"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:text="Docked"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_on"
+            app:chipIconSize="30dp" />
+
+        <RadioButton
+            android:id="@+id/teleChargeEngaged"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape_on"
+            android:text="Engaged"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            app:chipBackgroundColor="@color/black"
+            app:chipIcon="@drawable/button_shape_on"
+            app:chipIconSize="30dp" />
+
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
