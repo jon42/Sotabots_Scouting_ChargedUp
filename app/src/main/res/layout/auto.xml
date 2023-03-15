@@ -263,7 +263,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_off"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="auto"/>
 
         <RadioButton
             android:id="@+id/autoChargeDocked"
@@ -275,7 +276,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="auto"/>
 
         <RadioButton
             android:id="@+id/autoChargeEngaged"
@@ -288,7 +290,8 @@
             android:textColorLink="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="auto"/>
 
     </RadioGroup>
 

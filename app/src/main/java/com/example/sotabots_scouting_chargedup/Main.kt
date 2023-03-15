@@ -37,13 +37,13 @@ class Main : Activity() {
     }
 
     fun start(){
-//        setContentView(layout.start)
-//        findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
+        setContentView(layout.start)
+        findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
         data = mutableMapOf()
         prevChange = Stack()
         dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
         dataBase.setPersistenceEnabled(true)
-        setAuto()
+//        setAuto()
     }
 
     override fun onResume() {
@@ -79,32 +79,39 @@ class Main : Activity() {
         prevChange.add(view)
 
     }
-    fun autoChargeStation(view: View){
-        when (view.id) {
-            id.autoChargeOff -> {data.putIfAbsent("autoChargeStation", 0)
-                data["autoChargeStation"] = 0
+    fun chargeStation(view: View){
+        var x = view.tag.toString()
+        var y = if (x == "auto") "autoChargeStation" else "teleChargeStation"
+        if (x == "auto") {
+            when (view.id) {
+                id.autoChargeOff -> {
+                    data.putIfAbsent(y, 0)
+                    data[y] = 0
+                }
+                id.autoChargeEngaged -> {
+                    data.putIfAbsent(y, 1)
+                    data[y] = 1
+                }
+                id.autoChargeDocked -> {
+                    data.putIfAbsent(y, 2)
+                    data[y] = 2
+                }
             }
-            id.autoChargeEngaged -> {data.putIfAbsent("autoChargeStation", 1)
-                data["autoChargeStation"] = 1
-            }
-            id.autoChargeDocked -> {data.putIfAbsent("autoChargeStation", 2)
-                data["autoChargeStation"] = 2
+        }else{
+            when (view.id) {
+                id.teleChargeOff -> {data.putIfAbsent(y, 0)
+                    data[y] = 0
+                }
+                id.teleChargeEngaged -> {data.putIfAbsent(y, 1)
+                    data[y] = 1
+                }
+                id.teleChargeDocked -> {data.putIfAbsent(y, 2)
+                    data[y] = 2
+                }
             }
         }
     }
-    fun teleChargeStation(view: View){
-        when (view.id) {
-            id.teleChargeOff -> {data.putIfAbsent("teleChargeStation", 0)
-                data["teleChargeStation"] = 0
-            }
-            id.teleChargeEngaged -> {data.putIfAbsent("teleChargeStation", 1)
-                data["teleChargeStation"] = 1
-            }
-            id.teleChargeDocked -> {data.putIfAbsent("teleChargeStation", 2)
-                data["teleChargeStation"] = 2
-            }
-        }
-    }
+
     fun undo(){
         if(prevChange.empty()) {
             initializeView()
@@ -170,9 +177,6 @@ class Main : Activity() {
             data.putIfAbsent(it.tag.toString(), 0)
             data.compute(it.tag.toString()) { k, v -> return@compute if (v == 1) 0 else 1 }
         }
-        findViewById<RadioButton>(id.autoChargeOff).setOnClickListener() {autoChargeStation(it)}
-        findViewById<RadioButton>(id.autoChargeDocked).setOnClickListener() {autoChargeStation(it)}
-        findViewById<RadioButton>(id.autoChargeEngaged).setOnClickListener() {autoChargeStation(it)}
 
 
         var touchables = listOf<Button>(
@@ -191,7 +195,19 @@ class Main : Activity() {
             x.setOnClickListener(){
                 setData(x)
                 x.text = x.hint.toString() + data[x.tag.toString()]
+            }
         }
+        var radio = listOf<View>(
+            findViewById<RadioButton>(id.autoChargeOff),
+            findViewById<RadioButton>(id.autoChargeDocked),
+            findViewById<RadioButton>(id.autoChargeEngaged)
+        )
+
+        radio.forEach() {
+            it.setOnClickListener() {
+                val x = findViewById<RadioButton>(it.id)
+                chargeStation(x)
+            }
         }
     }
     fun setTele(){
@@ -212,9 +228,6 @@ class Main : Activity() {
             findViewById(id.teleCubeHighbt)
 
         )
-        findViewById<RadioButton>(id.teleChargeOff).setOnClickListener() {teleChargeStation(it)}
-        findViewById<RadioButton>(id.teleChargeDocked).setOnClickListener() {teleChargeStation(it)}
-        findViewById<RadioButton>(id.teleChargeEngaged).setOnClickListener() {teleChargeStation(it)}
 
         touchables.forEach(){
             val x = findViewById<Button>(it.id)
@@ -222,6 +235,17 @@ class Main : Activity() {
             x.setOnClickListener(){
                 setData(x)
                 x.text = x.hint.toString() + data[x.tag.toString()]
+            }
+        }
+        var radio = listOf<View>(
+            findViewById<RadioButton>(id.teleChargeOff),
+            findViewById<RadioButton>(id.teleChargeDocked),
+            findViewById<RadioButton>(id.teleChargeEngaged)
+        )
+        radio.forEach(){
+            it.setOnClickListener() {
+                val x = findViewById<RadioButton>(it.id)
+                chargeStation(x)
             }
         }
     }

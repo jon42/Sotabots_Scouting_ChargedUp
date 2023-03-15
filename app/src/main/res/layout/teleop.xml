@@ -212,7 +212,8 @@
         app:layout_constraintBottom_toTopOf="@id/Foul"
         app:layout_constraintStart_toStartOf="@+id/teleConeLowBt"
         app:layout_constraintTop_toBottomOf="@+id/teleConeLowBt"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        >
 
         <RadioButton
 
@@ -226,7 +227,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_off"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="tele"/>
 
         <RadioButton
             android:id="@+id/teleChargeDocked"
@@ -238,7 +240,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="tele"/>
 
         <RadioButton
             android:id="@+id/teleChargeEngaged"
@@ -251,7 +254,8 @@
             android:textColorLink="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:tag="tele"/>
 
     </RadioGroup>
 
