@@ -86,29 +86,24 @@ class Main : Activity() {
             when (view.id) {
                 id.autoChargeOff -> {
                     data.putIfAbsent(y, 0)
-                    data[y] = 0
-                }
+                    data[y] = 0 }
                 id.autoChargeEngaged -> {
                     data.putIfAbsent(y, 1)
-                    data[y] = 1
-                }
+                    data[y] = 1 }
                 id.autoChargeDocked -> {
                     data.putIfAbsent(y, 2)
-                    data[y] = 2
-                }
-            }
+                    data[y] = 2 } }
         }else{
             when (view.id) {
-                id.teleChargeOff -> {data.putIfAbsent(y, 0)
-                    data[y] = 0
-                }
-                id.teleChargeEngaged -> {data.putIfAbsent(y, 1)
-                    data[y] = 1
-                }
-                id.teleChargeDocked -> {data.putIfAbsent(y, 2)
-                    data[y] = 2
-                }
-            }
+                id.teleChargeOff -> {
+                    data.putIfAbsent(y, 0)
+                    data[y] = 0 }
+                id.teleChargeEngaged -> {
+                    data.putIfAbsent(y, 1)
+                    data[y] = 1 }
+                id.teleChargeDocked -> {
+                    data.putIfAbsent(y, 2)
+                    data[y] = 2 } }
         }
     }
 
@@ -131,8 +126,6 @@ class Main : Activity() {
         }
 
     }
-
-
 
     fun setPoseView(){
         setContentView(layout.setpose)
