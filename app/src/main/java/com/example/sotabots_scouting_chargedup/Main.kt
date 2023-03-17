@@ -1,5 +1,6 @@
 package com.example.sotabots_scouting_chargedup
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
@@ -18,12 +20,12 @@ import java.util.Stack
 
 
 class Main : Activity() {
-    lateinit var data: MutableMap<String, Int>
+    lateinit var data: MutableMap<String, Any>
     var pose: Int = 0
     lateinit var poseTXT: String
     lateinit var color: Drawable
     lateinit var prevChange: Stack<View>
-    lateinit var dataBase: FirebaseDatabase // = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
+    var dataBase: FirebaseDatabase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         start()
@@ -44,8 +46,16 @@ class Main : Activity() {
         dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
         dataBase.setPersistenceEnabled(true)
 //        setAuto()
+
     }
 
+    fun onNewStart(){
+        setContentView(layout.start)
+        findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
+        data.clear()
+        prevChange = Stack()
+
+    }
     override fun onResume() {
         super.onResume()
     }
@@ -72,7 +82,7 @@ class Main : Activity() {
         var button: Button = findViewById(view.id)
         data.putIfAbsent(view.tag.toString(), 0)
         data.compute(view.tag.toString()) { k , v ->
-            return@compute if(v != null) v + 1 else 1
+            return@compute if(v != null) v.toString().toInt() + 1 else 1
         }
         var text = button.hint.toString() + data[view.tag.toString()].toString()
         button.text = text
@@ -86,24 +96,24 @@ class Main : Activity() {
             when (view.id) {
                 id.autoChargeOff -> {
                     data.putIfAbsent(y, 0)
-                    data[y] = 0 }
+                    data[y] = "Off" }
                 id.autoChargeEngaged -> {
                     data.putIfAbsent(y, 1)
-                    data[y] = 1 }
+                    data[y] = "Engaged" }
                 id.autoChargeDocked -> {
                     data.putIfAbsent(y, 2)
-                    data[y] = 2 } }
+                    data[y] = "Docked" } }
         }else{
             when (view.id) {
                 id.teleChargeOff -> {
                     data.putIfAbsent(y, 0)
-                    data[y] = 0 }
+                    data[y] = "Off" }
                 id.teleChargeEngaged -> {
                     data.putIfAbsent(y, 1)
-                    data[y] = 1 }
+                    data[y] = "Engaged" }
                 id.teleChargeDocked -> {
                     data.putIfAbsent(y, 2)
-                    data[y] = 2 } }
+                    data[y] = "Docked" } }
         }
     }
 
@@ -114,13 +124,12 @@ class Main : Activity() {
         }
         var view = prevChange.pop()
         data.compute(view.tag.toString()) {k, v ->
-            return@compute if (v != null) {v - 1 } else 0
+            return@compute if (v != null) {v.toString().toInt() - 1 } else 0
         }
-
         try{
             setTele()
             val x = findViewById<Button>(view.id)
-            x.text = x.hint.toString() + data[x.id.toString()]
+            x.text = x.hint.toString() + data[x.tag.toString()].toString()
         }catch(e: NullPointerException){
             setAuto()
         }
@@ -179,7 +188,7 @@ class Main : Activity() {
             findViewById(id.autoConeMiddlebt),
             findViewById(id.autoCubeHighbt),
             findViewById(id.autoCubeMiddle),
-            findViewById(id.Foul)
+            findViewById(id.autoFoul)
         )
 
         touchables.forEach(){
@@ -203,23 +212,22 @@ class Main : Activity() {
             }
         }
     }
+    @SuppressLint("SetTextI18n")
     fun setTele(){
         setContentView(layout.teleop)
         findViewById<Button>(id.teleUndoBt).setOnClickListener() {undo()}
         findViewById<Button>(id.teleSetAutobt).setOnClickListener() {setAuto()}
         findViewById<Button>(id.Finished).setOnClickListener() {
-//            publishData()
-//            initializeView()
             finalDataView()
         }
         var touchables = listOf<View>(
             findViewById<Button>(id.teleConeHighBt),
-            findViewById(id.teleConeLowBt),
-            findViewById(id.teleConeMiddlebt),
-            findViewById(id.teleCubeMiddlebt),
-            findViewById(id.teleCubeLowbt),
-            findViewById(id.teleCubeHighbt)
-
+            findViewById<Button>(id.teleConeLowBt),
+            findViewById<Button>(id.teleConeMiddlebt),
+            findViewById<Button>(id.teleCubeMiddlebt),
+            findViewById<Button>(id.teleCubeLowbt),
+            findViewById<Button>(id.teleCubeHighbt),
+            findViewById<Button>(id.teleFoul)
         )
 
         touchables.forEach(){
@@ -242,44 +250,71 @@ class Main : Activity() {
             }
         }
     }
+
+    fun finalData(){
+        data["Notes"] = findViewById<EditText>(id.notes).text.toString()
+        data["Strategy"] = findViewById<SeekBar>(id.strategyRateBar).progress
+        data["Defense"] = findViewById<SeekBar>(id.defenseRateBar).progress
+        data["Scoring"] = findViewById<SeekBar>(id.scoringRateBar).progress
+        gameStatusView()
+    }
+    fun gameStatusView(){
+        setContentView(layout.gamestatus)
+        findViewById<Button>(id.FinalBackButton2).setOnClickListener() { finalDataView() }
+        findViewById<Button>(id.win).setOnClickListener() { finish(it) }
+        findViewById<Button>(id.tie).setOnClickListener() { finish(it) }
+        findViewById<Button>(id.lose).setOnClickListener() { finish(it) }
+    }
     private fun finalDataView(){
-        setContentView(R.layout.finaldata)
-        var buttonOn = Drawable.createFromPath("button_shape_on.xml")
-        var buttonOff = Drawable.createFromPath("button_shape_off.xml")
-        findViewById<Button>(R.id.FinalBackButton).setOnClickListener() {setContentView(layout.teleop)}
-
-        var engagedCharge = findViewById<Button>(id.TeleOpEngangedCharge)
-        var onCharge = findViewById<Button>(id.TeleOpOnCharge)
-        var noCharge = findViewById<Button>(id.TeleopNoCharge)
-        var strategySlider = findViewById<SeekBar>(id.Strategy)
-
-        data["teleCharge"] = 0
-        noCharge.background = buttonOff
-
-        noCharge.setOnClickListener(){
-            data["teleCharge"] = 0
-            it.background = buttonOff
-            onCharge.background = buttonOn
-            engagedCharge.background = buttonOn
+        setContentView(layout.finaldata)
+        findViewById<Button>(id.FinalBackButton).setOnClickListener() {setTele()}
+        findViewById<Button>(id.finalNextButton).setOnClickListener() { finalData() }
+    }
+    fun finish(view: View){
+        var status = view.tag.toString()
+        when (status) {
+            "win" -> data["gameStatus"] = "win"
+            "tie" -> data["gameStatus"] = "tie"
+            "lose" -> data["gameStatus"] = "lose"
         }
-        onCharge.setOnClickListener() {
-            data["teleCharge"] = 1
-            it.background = buttonOff
-            noCharge.background = buttonOn
-            engagedCharge.background = buttonOn
-        }
-        engagedCharge.setOnClickListener(){
-            data["teleCharge"] = 2
-            it.background = buttonOff
-            onCharge.background = buttonOn
-            noCharge.background = buttonOn
-        }
+        publishData()
+        onNewStart()
     }
 
     fun publishData(){
+        var allValues = listOf<String>(
+            "Pose",
+            "Team",
+            "match",
+            "autoChargeStation",
+            "autoConeHigh",
+            "autoConeMiddle",
+            "autoConeLow",
+            "autoCubeHigh",
+            "autoCubeMiddle",
+            "autoCubeLow",
+            "autoFoul",
+            "Mobility",
+            "teleChargeStation",
+            "teleConeHigh",
+            "teleConeMiddle",
+            "teleConeLow",
+            "teleCubeHigh",
+            "teleCubeMiddle",
+            "teleCubeLow",
+            "teleFoul",
+            "Notes",
+            "Strategy",
+            "Defense",
+            "Scoring",
+            "gameStatus"
+        )
+        for (term in allValues){
+            data.putIfAbsent(term, 0)
+        }
         var ref = dataBase.getReference(
             "Teams/" + data["Team"].toString()
-                    + "/" + "Match's/"  + data["match"])
+                    + "/" + "Matches/"  + data["match"])
         ref.setValue(data)
 
     }

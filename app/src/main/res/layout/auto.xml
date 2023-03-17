@@ -64,7 +64,7 @@
         android:fontFamily="@font/roboto"
         android:text="High: \n0"
         android:hint="High: \n"
-        android:tag="AutoCubeHigh"
+        android:tag="autoCubeHigh"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@+id/cubetext"
@@ -79,7 +79,7 @@
         android:background="@drawable/button_shape_on"
         android:text="Middle: 0"
         android:hint="Middle: \n"
-        android:tag="autoCubeHigh"
+        android:tag="autoCubeMiddle"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
@@ -94,7 +94,7 @@
         android:background="@drawable/button_shape_on"
         android:text="Low: \n0"
         android:hint="Low: \n"
-        android:tag="autoCubelow"
+        android:tag="autoCubeLow"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:fontFamily="@font/roboto"
@@ -165,7 +165,7 @@
 
 
     <Button
-        android:id="@+id/Foul"
+        android:id="@+id/autoFoul"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
@@ -246,7 +246,7 @@
         android:id="@+id/autoChargeStation"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/Foul"
+        app:layout_constraintBottom_toTopOf="@id/autoFoul"
         app:layout_constraintStart_toStartOf="@+id/autoConeLowbt"
         app:layout_constraintTop_toBottomOf="@+id/autoConeLowbt"
         app:singleSelection="true">

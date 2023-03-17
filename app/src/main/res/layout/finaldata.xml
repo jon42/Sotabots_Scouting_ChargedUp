@@ -8,63 +8,74 @@
 
 
     <TextView
-        android:id="@+id/FinalChargeStationTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginBottom="671dp"
-        android:fontFamily="@font/roboto"
-        android:text="Final Charge Station"
+        android:id="@+id/scoringText"
+        android:layout_width="324dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:text="Scoring Potential"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
-        app:layout_constraintStart_toStartOf="@id/FinalBackButton"
-        app:layout_constraintTop_toBottomOf="@id/FinalBackButton"
-        app:layout_constraintVertical_bias="0.244" />
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/defenseRateBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/defenseRateBar"
+        app:layout_constraintTop_toBottomOf="@+id/defenseRateBar" />
 
-    <Button
-        android:id="@+id/TeleopNoCharge"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/button_shape_on"
-        android:text="Off"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FinalChargeStationTXT"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/TeleOpOnCharge"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/button_shape_on"
-        android:text="On"
-        android:textSize="20sp"
+    <TextView
+        android:id="@+id/strategyText"
+        android:layout_width="324dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:text="Strategy"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/TeleopNoCharge"
-        app:layout_constraintStart_toEndOf="@+id/TeleopNoCharge"
-        app:layout_constraintTop_toTopOf="@id/TeleopNoCharge"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/ratingText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ratingText"
+        app:layout_constraintTop_toBottomOf="@+id/ratingText" />
 
-    <Button
-        android:id="@+id/TeleOpEngangedCharge"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:text="Engaged"
-        android:textSize="17sp"
+    <TextView
+        android:id="@+id/defenseText"
+        android:layout_width="324dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:text="Defense"
+        android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/strategyRateBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/strategyRateBar"
+        app:layout_constraintTop_toBottomOf="@+id/strategyRateBar" />
+
+    <SeekBar
+        android:id="@+id/defenseRateBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="324dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+
         android:background="@drawable/button_shape_on"
-        app:layout_constraintBottom_toBottomOf="@id/TeleOpOnCharge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TeleOpOnCharge"
-        app:layout_constraintTop_toTopOf="@id/TeleOpOnCharge" />
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintEnd_toEndOf="@+id/defenseText"
+        app:layout_constraintStart_toStartOf="@+id/defenseText"
+        app:layout_constraintTop_toBottomOf="@+id/defenseText" />
+
+    <SeekBar
+        android:id="@+id/scoringRateBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="324dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+
+        android:background="@drawable/button_shape_on"
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintEnd_toEndOf="@+id/scoringText"
+        app:layout_constraintStart_toStartOf="@+id/scoringText"
+        app:layout_constraintTop_toBottomOf="@+id/scoringText" />
 
     <Button
         android:id="@+id/FinalBackButton"
@@ -85,22 +96,67 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <SeekBar
-        android:id="@+id/Strategy"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="426dp"
+    <Button
+        android:id="@+id/finalNextButton"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black"
         android:backgroundTint="@color/black"
-        android:progressBackgroundTint="@color/cardview_shadow_end_color"
-        android:progressDrawable="@drawable/button_shape_on"
-        android:progressTint="@color/white"
-        android:thumbTint="#EC4343"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scoringRateBar"
+        app:layout_constraintStart_toStartOf="@+id/scoringRateBar"
+        app:layout_constraintTop_toBottomOf="@+id/scoringRateBar"
+        app:layout_constraintVertical_bias="0.484" />
+
+    <SeekBar
+        android:id="@+id/strategyRateBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="324dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_shape_on"
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintEnd_toEndOf="@+id/strategyText"
+        app:layout_constraintStart_toStartOf="@+id/strategyText"
+        app:layout_constraintTop_toBottomOf="@+id/strategyText" />
+
+    <TextView
+        android:id="@+id/ratingText"
+        android:layout_width="330dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="25dp"
+        android:text="Rate the following categories from 1-10"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/notes"
+        app:layout_constraintStart_toStartOf="@+id/notes"
+        app:layout_constraintTop_toBottomOf="@+id/notes" />
+
+    <EditText
+        android:id="@+id/notes"
+        android:layout_width="324dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/teal_700"
+        android:textAlignment="center"
+        android:ems="10"
+        android:hint="Notes"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TeleopNoCharge" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

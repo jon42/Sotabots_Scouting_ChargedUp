@@ -177,11 +177,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Foul"
+        android:id="@+id/teleFoul"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:background="@drawable/button_shape_on"
-        android:text="Foul"
+        android:text="Foul: 0"
         android:hint="Foul: "
         android:tag="teleFoul"
         android:textColor="@color/white"
@@ -203,13 +203,13 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@id/teleUndoBt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Foul"
+        app:layout_constraintStart_toEndOf="@+id/autoFoul"
         app:layout_constraintTop_toTopOf="@+id/teleUndoBt"  />
     <RadioGroup
         android:id="@+id/teleChargeStation"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/Foul"
+        app:layout_constraintBottom_toTopOf="@id/autoFoul"
         app:layout_constraintStart_toStartOf="@+id/teleConeLowBt"
         app:layout_constraintTop_toBottomOf="@+id/teleConeLowBt"
         app:singleSelection="true"
