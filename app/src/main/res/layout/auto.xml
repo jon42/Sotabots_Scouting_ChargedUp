@@ -10,33 +10,28 @@
         android:id="@+id/autotext"
         android:layout_width="115dp"
         android:layout_height="60dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Auto"
-        android:textColor="@color/white"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="@id/conetext"
+        app:layout_constraintStart_toStartOf="@id/conetext"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/teleopbt"
         android:layout_width="115dp"
         android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="30dp"
         android:background="@color/black"
         android:fontFamily="@font/roboto"
         android:text="Teleop"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/autotext"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cubetext"
+        app:layout_constraintStart_toStartOf="@id/cubetext"
         app:layout_constraintTop_toTopOf="@id/autotext" />
 
     <TextView
@@ -168,8 +163,6 @@
         android:id="@+id/autoFoul"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/button_shape_on"
         android:text="Foul: 0"
         android:hint="Foul: "
@@ -177,22 +170,22 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/autoUndobt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/autoUndobt"
+        app:layout_constraintEnd_toEndOf="@id/conetext"
+        app:layout_constraintStart_toStartOf="@id/conetext"
         app:layout_constraintTop_toTopOf="@+id/autoUndobt" />
 
     <Button
         android:id="@+id/autoUndobt"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="30dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_shape_on"
         android:text="Undo"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"   />
+        app:layout_constraintStart_toStartOf="@id/cubetext"
+        app:layout_constraintEnd_toEndOf="@id/cubetext"/>
 
     <CheckBox
         android:id="@+id/checkBox"

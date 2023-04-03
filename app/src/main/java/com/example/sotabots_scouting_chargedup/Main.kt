@@ -3,6 +3,7 @@ package com.example.sotabots_scouting_chargedup
 import android.R
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -45,6 +46,7 @@ class Main : Activity() {
     fun start(){
         setContentView(layout.start)
         findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
+        setRequestedOrientation(ActivityIn   fo.SCREEN_ORIENTATION_PORTRAIT);
         data = mutableMapOf()
         prevChange = Stack()
         dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
@@ -313,7 +315,7 @@ class Main : Activity() {
             "autoConeLow",
             "autoCubeHigh",
             "autoCubeMiddle",
-            "autoCubeLow",
+            "autoCubeLow" ,
             "autoFoul",
             "Mobility",
             "teleChargeStation",
