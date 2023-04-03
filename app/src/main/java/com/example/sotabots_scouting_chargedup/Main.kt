@@ -1,5 +1,6 @@
 package com.example.sotabots_scouting_chargedup
 
+import android.R
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.drawable.Drawable
@@ -12,6 +13,9 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.sotabots_scouting_chargedup.R.*
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -45,12 +49,24 @@ class Main : Activity() {
         prevChange = Stack()
         dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
         dataBase.setPersistenceEnabled(true)
-//        setAuto()
-
+    hideSystemUI()
     }
+    // Function to hide NavigationBar
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window,
+            window.decorView.findViewById(R.id.content)).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
 
+            // When the screen is swiped up at the bottom
+            // of the application, the navigationBar shall
+            // appear for some time
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+    }
     fun onNewStart(){
         setContentView(layout.start)
+        hideSystemUI()
         findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
         data.clear()
         prevChange = Stack()
@@ -68,8 +84,8 @@ class Main : Activity() {
 
 
     fun initializeData(){
-        if(findViewById<TextView>(id.setTeamNumber).text.toString().toInt() == null ||
-            findViewById<TextView>(id.setMatchNumber).text.toString().toInt() == null) return
+        if(findViewById<TextView>(id.setTeamNumber).text.toString() == "" ||
+            findViewById<TextView>(id.setMatchNumber).text.toString() == "") return
         data.clear()
         data["Pose"] = this.pose
         data["Team"] = findViewById<TextView>(id.setTeamNumber).text.toString().toInt()
@@ -77,7 +93,7 @@ class Main : Activity() {
 
         setAuto()
     }
-    fun setData(view: View){
+    fun setData(view: View) {
 
         var button: Button = findViewById(view.id)
         data.putIfAbsent(view.tag.toString(), 0)
@@ -138,6 +154,7 @@ class Main : Activity() {
 
     fun setPoseView(){
         setContentView(layout.setpose)
+        hideSystemUI()
         var buttonList =  listOf<View>(
         findViewById<Button>(id.red1),
         findViewById<Button>(id.red2),
@@ -162,6 +179,7 @@ class Main : Activity() {
 
     fun initializeView(){
         setContentView(layout.initialize)
+        hideSystemUI()
         var showPose = findViewById<TextView>(id.displayPose)
         showPose.background = color
         showPose.text = poseTXT
@@ -173,6 +191,7 @@ class Main : Activity() {
 
     fun setAuto(){
         setContentView(layout.auto)
+        hideSystemUI()
         findViewById<Button>(id.teleopbt).setOnClickListener() {setTele()}
         findViewById<Button>(id.autoUndobt).setOnClickListener() {undo()}
         findViewById<CheckBox>(id.checkBox).setOnClickListener() {
@@ -215,6 +234,7 @@ class Main : Activity() {
     @SuppressLint("SetTextI18n")
     fun setTele(){
         setContentView(layout.teleop)
+        hideSystemUI()
         findViewById<Button>(id.teleUndoBt).setOnClickListener() {undo()}
         findViewById<Button>(id.teleSetAutobt).setOnClickListener() {setAuto()}
         findViewById<Button>(id.Finished).setOnClickListener() {
@@ -260,13 +280,14 @@ class Main : Activity() {
     }
     fun gameStatusView(){
         setContentView(layout.gamestatus)
-        findViewById<Button>(id.FinalBackButton2).setOnClickListener() { finalDataView() }
+        hideSystemUI()
         findViewById<Button>(id.win).setOnClickListener() { finish(it) }
         findViewById<Button>(id.tie).setOnClickListener() { finish(it) }
         findViewById<Button>(id.lose).setOnClickListener() { finish(it) }
     }
     private fun finalDataView(){
         setContentView(layout.finaldata)
+        hideSystemUI()
         findViewById<Button>(id.FinalBackButton).setOnClickListener() {setTele()}
         findViewById<Button>(id.finalNextButton).setOnClickListener() { finalData() }
     }
@@ -309,7 +330,7 @@ class Main : Activity() {
             "Scoring",
             "gameStatus"
         )
-        for (term in allValues){
+        for (term in allValues) {
             data.putIfAbsent(term, 0)
         }
         var ref = dataBase.getReference(

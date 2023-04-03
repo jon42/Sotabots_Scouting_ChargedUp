@@ -227,7 +227,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_off"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/teleChargeDocked"
@@ -240,7 +241,8 @@
             android:textColor="@color/white"
             app:chipBackgroundColor="@color/black"
             app:chipIcon="@drawable/button_shape_on"
-            app:chipIconSize="30dp" />
+            app:chipIconSize="30dp"
+            android:layout_marginBottom="10dp"/>
 
         <RadioButton
             android:id="@+id/teleChargeEngaged"
