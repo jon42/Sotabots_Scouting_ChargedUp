@@ -7,9 +7,6 @@
     android:background="#CEFF00"
     tools:context=".Main">
 
-
-
-
     <Button
         android:id="@+id/start"
         android:layout_width="180dp"

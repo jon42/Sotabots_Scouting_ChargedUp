@@ -46,7 +46,7 @@ class Main : Activity() {
     fun start(){
         setContentView(layout.start)
         findViewById<Button>(id.start).setOnClickListener() {x -> setPoseView()}
-        setRequestedOrientation(ActivityIn   fo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         data = mutableMapOf()
         prevChange = Stack()
         dataBase = Firebase.database("https://sotabots-scouting-2023-default-rtdb.firebaseio.com/")
@@ -200,7 +200,10 @@ class Main : Activity() {
             data.putIfAbsent(it.tag.toString(), 0)
             data.compute(it.tag.toString()) { k, v -> return@compute if (v == 1) 0 else 1 }
         }
-
+        val z = findViewById<CheckBox>(id.checkBox)
+        if(data.get(z.tag.toString()) == 1){
+            z.setChecked(true)
+        }
 
         var touchables = listOf<Button>(
             findViewById<Button>(id.autoConeLowbt),
